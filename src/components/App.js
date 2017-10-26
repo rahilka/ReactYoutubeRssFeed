@@ -18,7 +18,7 @@ class App extends Component {
   fetchFeeds() {
     axios({
       method: 'GET',
-      url: `https://www.googleapis.com/youtube/v3/activities?channelId=${channelId}&key=${API_KEY}&part=snippet,contentDetails&maxResults=20`,
+      url: `https://www.googleapis.com/youtube/v3/activities?channelId=${channelId}&key=${API_KEY}&part=snippet,contentDetails&maxResults=50`,
     })
     .then(res => {
       this.setState({ videos: res.data.items });
