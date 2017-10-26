@@ -3,12 +3,18 @@ import VideoListItem from './VideoListItem';
 
 const VideoList = (props) => {
 	
+  // eslint-disable-next-line
 	const videoItems = props.videos.map((video) => {
-    return (
-      <VideoListItem
-        key = {video.etag}
-        video = {video} />
-    )
+
+    if (video.contentDetails.upload) {
+      return (
+        <VideoListItem
+          key={video.etag}
+          video={video} 
+        />
+      )
+    }
+
   });
 
 	return (
