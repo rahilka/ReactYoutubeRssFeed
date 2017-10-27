@@ -30,14 +30,12 @@ class App extends Component {
   }
 
   videoSearch(search_term) {
-    // console.log(search_term);
     axios({
       method: 'GET',
       url: `https://www.googleapis.com/youtube/v3/search?channelId=${channelId}&key=${API_KEY}&part=snippet&maxResults=25&q=${search_term}`,
     })
     .then(res => {
       this.setState({ videos: res.data.items });
-      // console.log('RESULTS: ', res);
     })
     .catch(err => {
       console.log('ERROR: ', err);
