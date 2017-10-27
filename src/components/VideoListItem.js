@@ -6,7 +6,7 @@ const VideoListItem = ({video}) => {
   const imageUrl = video.snippet.thumbnails.default.url;
 
   return (
-    <div className="col-md-4">
+    <div className="col-md-6">
       <li onClick={() => console.log('clicked video')} className="list-group-item">
         <div className="video-list media">
           <div className="media-left">
