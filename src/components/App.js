@@ -28,10 +28,14 @@ class App extends Component {
     });
   }
 
+  videoSearch(search_term) {
+    console.log(search_term);
+  }
+
   render() {
     return (
       <div>
-        <SearchBar />
+        <SearchBar onSearchTermChange = {this.videoSearch} />
         <VideoList videos={this.state.videos} />
       </div>
     );
