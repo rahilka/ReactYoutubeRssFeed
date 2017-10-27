@@ -6,14 +6,14 @@ const VideoList = (props) => {
   // eslint-disable-next-line
 	const videoItems = props.videos.map((video) => {
 
-    if (video.contentDetails.upload) {
+    // if (video.contentDetails.upload) {
       return (
         <VideoListItem
           key={video.etag}
           video={video} 
         />
       )
-    }
+    // }
 
   });
 

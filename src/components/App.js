@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import _ from 'lodash';
 // import logo from '../logo.svg';
 import '../App.css';
 import VideoList from './VideoList';
@@ -35,8 +36,8 @@ class App extends Component {
       url: `https://www.googleapis.com/youtube/v3/search?channelId=${channelId}&key=${API_KEY}&part=snippet&maxResults=25&q=${search_term}`,
     })
     .then(res => {
-      // this.setState({ videos: res.data.items });
-      console.log('RESULTS: ', res);
+      this.setState({ videos: res.data.items });
+      // console.log('RESULTS: ', res);
     })
     .catch(err => {
       console.log('ERROR: ', err);
@@ -44,9 +45,12 @@ class App extends Component {
   }
 
   render() {
+
+    const videoSearch = _.debounce((search_term) => { this.videoSearch(search_term) }, 300);
+
     return (
       <div>
-        <SearchBar onSearchTermChange = {this.videoSearch} />
+        <SearchBar onSearchTermChange={videoSearch} />
         <VideoList videos={this.state.videos} />
       </div>
     );
