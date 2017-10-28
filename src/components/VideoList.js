@@ -1,20 +1,22 @@
 import React from 'react';
 import VideoListItem from './VideoListItem';
 
-const VideoList = (props) => {
-	
-  // eslint-disable-next-line
-	const videoItems = props.videos.map((video) => {
+const VideoList = ({videos}) => {	
+  let filteredVideos = videos;
+  
+  for (let i = 0; i<videos.length; i++) {
+    if(videos[i].kind === 'youtube#activity') {
+      filteredVideos = videos.filter(video => video.snippet.type === 'upload');
+    } 
+  }
 
-    // if (video.contentDetails.upload) {
+	const videoItems = filteredVideos.map((video) => {
       return (
         <VideoListItem
           key={video.etag}
           video={video} 
         />
       )
-    // }
-
   });
 
 	return (

@@ -6,9 +6,12 @@ const VideoListItem = ({video}) => {
   const title = video.snippet.title;
   const imageUrl = video.snippet.thumbnails.default.url;
   const description = video.snippet.description;
+
   let videoId;
-  if(video.contentDetails.upload) {
-    videoId = video.contentDetails.upload.videoId; 
+  if(video.kind === 'youtube#activity'){
+    videoId = video.contentDetails.upload.videoId;
+  } else {
+    videoId = video.id.videoId;
   }
   
   return (
