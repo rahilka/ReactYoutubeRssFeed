@@ -3,12 +3,15 @@ import axios from 'axios';
 import _ from 'lodash';
 import VideoList from './VideoList';
 import SearchBar from './SearchBar';
-const API_KEY = 'AIzaSyDeLsFCPL3Yrjj5mApMASa-kj5uMsAd-yk';
-const channelId = 'UCDPM_n1atn2ijUwHd0NNRQw';
+const API_KEY = 'AIzaSyDeLsFCPL3Yrjj5mApMASa-kj5uMsAd-yk';  //youtube api key
+const channelId = 'UCDPM_n1atn2ijUwHd0NNRQw'; //Coldplay channel id
 
+// SearchVideos will render both SearchBar and VideoList component
 class SearchVideos extends Component {
   constructor(props) {
     super(props);
+
+    // default state:
     this.state = { 
       videos: []
     };
@@ -16,6 +19,7 @@ class SearchVideos extends Component {
     this.fetchFeeds();
   }
 
+  // fetchFeeds: function to fetch the channel activities data
   fetchFeeds() {
     axios({
       method: 'GET',
@@ -29,6 +33,7 @@ class SearchVideos extends Component {
     });
   }
 
+  // videoSearch is called on the search input
   videoSearch(search_term) {
     axios({
       method: 'GET',
@@ -44,6 +49,7 @@ class SearchVideos extends Component {
 
   render() {
 
+    // debounce: takes the inner function and returns new function that can only be called once every 300 ms
     const videoSearch = _.debounce((search_term) => { this.videoSearch(search_term) }, 300);
 
     return (

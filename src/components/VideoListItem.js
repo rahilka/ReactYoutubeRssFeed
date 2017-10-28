@@ -8,6 +8,7 @@ const VideoListItem = ({video}) => {
   const description = video.snippet.description;
 
   let videoId;
+  // the api calls for fetching activities and search return the 'videoId' property in a different spot
   if(video.kind === 'youtube#activity'){
     videoId = video.contentDetails.upload.videoId;
   } else {
