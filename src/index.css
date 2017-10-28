@@ -21,6 +21,18 @@ body {
   background-color: #eee;
 }
 
+.video-detail {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.video-detail .details {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
 ul {
   list-style-type: none;
 }
