@@ -18,7 +18,7 @@ const VideoListItem = ({video}) => {
     <div className="col-md-6">
       <li className="list-group-item">
         <Link 
-          to={{ pathname: '/detail', state: { title, description, videoId } }} 
+          to={{ pathname: `/video/${videoId}`, state: { title, description, videoId } }} 
           style={{textDecoration: 'none'}}
         >       
           <div className="video-list media">

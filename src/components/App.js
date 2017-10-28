@@ -11,7 +11,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Route exact path="/" component={SearchVideos} />
-            <Route exact path="/detail" component={VideoDetail} />
+            <Route exact path="/video/:id" component={VideoDetail} />
           </div>
         </BrowserRouter>
       </div>
